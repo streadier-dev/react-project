@@ -8,7 +8,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import Badges from './pages/Badges';
+import App from './components/App';
 import './global.css';
 
 //const jsx = <h1>Hello, Platzi Badges!</h1>;
@@ -16,6 +16,6 @@ import './global.css';
 const container = document.getElementById('app');
 
 // ReactDOM.render(__qué__, __dónde__);
-ReactDOM.render(<Badges />, container);
+ReactDOM.render(<App />, container);
 
 //ReactDOM.render(<Badge firstName="Gabo" lastName="Faure" jobTitle="Frontend Engineer" gitHub="gabo_devops" />, container);
