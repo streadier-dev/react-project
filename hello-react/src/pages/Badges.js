@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import api from '../api';
 import PageLoading from '../components/PageLoading';
 import PageError from '../components/PageError';
+import MiniLoader from '../components/MiniLoader';
 class Badges extends Component {
     state = {
         loading: true,
@@ -16,6 +17,12 @@ class Badges extends Component {
 
     componentDidMount() {
         this.fetchData();
+
+        this.intervaldId = setInterval(this.fetchData, 5000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.intervaldId)
     }
 
     fetchData = async () => {
@@ -30,7 +37,7 @@ class Badges extends Component {
     };
 
     render() {
-        if (this.state.loading === true) {
+        if (this.state.loading === true && !this.state.data) {
             return <PageLoading />;
         }
 
@@ -59,10 +66,12 @@ class Badges extends Component {
                     <div className="Badges__buttons">
                         <Link to="/badges/new" className="btn btn-primary">
                             New Badge
-            </Link>
+                        </Link>
                     </div>
-
+                    
                     <BadgesList badges={this.state.data} />
+
+                    {this.state.loading && <MiniLoader />}
                 </div>
             </React.Fragment>
         );
