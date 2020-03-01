@@ -44,10 +44,6 @@ class Badges extends Component {
         if (this.state.error) {
             return <PageError error={this.state.error} />;
         }
-        else {
-            console.log('hola')
-        }
-
         return (
             <React.Fragment>
                 <div className="Badges">

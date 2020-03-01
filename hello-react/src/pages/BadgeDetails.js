@@ -2,6 +2,7 @@ import React from 'react';
 import confLogo from '../images/platziconf-logo.svg';
 import { Link } from 'react-router-dom';
 import Badge from '../components/Badge';
+import DeleteBadgeModal from '../components/DeleteBadgeModal';
 function BadgeDetails(props) {
     const badge = props.badge;
         return (
@@ -44,7 +45,12 @@ function BadgeDetails(props) {
                                 </div>
 
                                 <div>
-                                    <button className="btn btn-danger">Delete</button>
+                                    <button onClick={props.onOpenModal}className="btn btn-danger">Delete</button>
+                                    <DeleteBadgeModal
+                                        isOpen={props.modalIsOpen}
+                                        onClose={props.onCloseModal}
+                                        onDeleteBadge={props.onDeleteBadge}
+                                    > Lorem </DeleteBadgeModal>
                                 </div>
                             </div>
                         </div>
